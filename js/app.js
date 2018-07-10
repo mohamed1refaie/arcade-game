@@ -80,7 +80,7 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-for(let i=0;i<1;i++) {
+for(let i=0;i<4;i++) {
     let enemy=new Enemy(0,Math.random()*184+50,Math.random()*256);
     allEnemies.push(enemy);
 }
