@@ -1,6 +1,28 @@
-frontend-nanodegree-arcade-game
-===============================
+# Memory Game project
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+Udacity Front-End Web Developer Nanodegree Project: Frogger Arcade Game
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## Table of Contents
+
+* [Project Overview](#project-overview)
+* [How The Game Works](#how-the-game-works)
+* [Instructions](#instructions)
+
+## Project Overview
+
+Frogger Arcade Game made with Object-Oriented JavaScript
+
+## How The Game Works
+
+The game is simply try to move the player from the start position to the river without any collisions with the bugs, if the player get hit by a bug he starts again from the start position.
+Each time you reach the river your score increases by one.
+
+You have only 4 valid moves (up,down,right,left)
+
+
+## Instructions
+
+1. [Download](https://github.com/mohamed1refaie/arcade-game/archive/master.zip) or [Clone](https://github.com/mohamed1refaie/arcade-game.git) the Repository.
+2. Open `index.html` file to view the project in your browser.
+
+
