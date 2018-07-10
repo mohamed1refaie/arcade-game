@@ -13,6 +13,7 @@ class Enemy {
     }
     render(){
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        displayScore();
     }
 }
 
@@ -49,47 +50,26 @@ class Player {
             this.update(this.x,this.y+85);   
         }
     }
+    win() {
+        if (this.y<=-25) {        
+            this.x = 200;
+            this.y = 400;
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, 505, 171);
+            score += 1;
+        }
+    }
 }
 
+let score = 0;
+let allEnemies=[];
+let scoreDiv = document.querySelector('.score');
+let player = new Player(200,400);
 
-/*// Enemies our player must avoid
-var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
+let displayScore = function() {
+    scoreDiv.innerHTML = 'Your Score: ' + score;
+};
 
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.png';
-    this.x=5;
-    this.y=5;
-};*/
-
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
-/*Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-};*/
-
-// Draw the enemy on the screen, required method for game
-/*Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};*/
-
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
-
-
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
@@ -97,13 +77,10 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
-
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-let allEnemies=[];
 for(let i=0;i<1;i++) {
     let enemy=new Enemy(0,Math.random()*184+50,Math.random()*256);
     allEnemies.push(enemy);
 }
-let player = new Player(200,400);

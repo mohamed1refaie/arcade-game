@@ -94,6 +94,7 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
+        player.win();
     }
     function checkCollisions() {
         for(anEnemy of allEnemies){
@@ -162,10 +163,8 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
-
+        
         player.render();
-        let modal=doc.querySelector('.modal');
-        if(player.y<=-25)modal.classList.toggle("win");
     }
 
     /* This function does nothing but it could have been a good place to
