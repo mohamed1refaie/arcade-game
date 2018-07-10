@@ -25,4 +25,5 @@ You have only 4 valid moves (up,down,right,left)
 1. [Download](https://github.com/mohamed1refaie/arcade-game/archive/master.zip) or [Clone](https://github.com/mohamed1refaie/arcade-game.git) the Repository.
 2. Open `index.html` file to view the project in your browser.
 
+Or you can just play it from [here](https://mohamed1refaie.github.io/arcade-game/)
 
