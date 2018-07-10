@@ -3,17 +3,17 @@ class Enemy {
     constructor(x=0,y=50,speed=256){
         this.x=x;
         this.y=y;
-        this.speed=speed;
+        this.speed=speed;   //setting the enemy speed
         this.sprite='images/enemy-bug.png';
     }
     update(dt){
         this.x+=this.speed*dt;
-        if(this.x>=505)
-            this.x=0;
+        if(this.x>=505) //checking if the enemy is out of the boundries 
+            this.x=0;  ///returning to the begining 
     }
     render(){
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-        displayScore();
+        displayScore();     //display the current score
     }
 }
 
@@ -25,10 +25,13 @@ class Player {
         this.sprite='images/char-boy.png';
     }
     update(x=this.x,y=this.y) {
+        
+        //checking if the player gone off the canvas, if so return it back 
         if(x>=400)x=400;
         else if(x<=0)x=0;
         if(y<=-25)y=-25;
         else if(y>=400)y=400;
+        
         this.x=x;
         this.y=y;
     }
@@ -50,7 +53,7 @@ class Player {
             this.update(this.x,this.y+85);   
         }
     }
-    win() {
+    win() {      //win function , if the player reached the river , increment the score and set his position back to initial state
         if (this.y<=-25) {        
             this.x = 200;
             this.y = 400;
