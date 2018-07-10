@@ -1,3 +1,4 @@
+
 class Enemy {
     constructor(x=0,y=50,speed=256){
         this.x=x;
@@ -14,6 +15,42 @@ class Enemy {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 }
+
+class Player {
+    
+    constructor(x=0,y=0){
+        this.x=x;
+        this.y=y;
+        this.sprite='images/char-boy.png';
+    }
+    update(x=this.x,y=this.y) {
+        if(x>=400)x=400;
+        else if(x<=0)x=0;
+        if(y<=-25)y=-25;
+        else if(y>=400)y=400;
+        this.x=x;
+        this.y=y;
+    }
+    render(){
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+    handleInput(direction){
+        if(direction=='right') {
+            this.update(this.x+100,this.y);
+        }
+        if(direction=='left') {
+            this.update(this.x-100,this.y);
+        }
+        if(direction=='up') {
+            this.update(this.x,this.y-85);
+        }
+        if(direction=='down')
+        {
+            this.update(this.x,this.y+85);   
+        }
+    }
+}
+
 
 /*// Enemies our player must avoid
 var Enemy = function() {
@@ -65,7 +102,8 @@ document.addEventListener('keyup', function(e) {
 });
 
 let allEnemies=[];
-for(let i=0;i<10;i++) {
+for(let i=0;i<1;i++) {
     let enemy=new Enemy(0,Math.random()*184+50,Math.random()*256);
     allEnemies.push(enemy);
 }
+let player = new Player(200,400);
